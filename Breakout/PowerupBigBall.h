@@ -1,12 +1,13 @@
 #pragma once
 #include "PowerupBase.h"
-class PowerupFastBall : public PowerupBase
+
+class PowerupBigBall : public PowerupBase
 {
 public:
-    PowerupFastBall(sf::RenderWindow* window, Paddle* paddle, Ball* ball);
-    ~PowerupFastBall();
+    PowerupBigBall(sf::RenderWindow* window, Paddle* paddle, Ball* ball);
+    ~PowerupBigBall();
 
     std::pair<POWERUPS, float> applyEffect() override; // Method to apply the power-up effect
 
-};
 
+};
