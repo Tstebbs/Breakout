@@ -2,6 +2,8 @@
 
 W Kavanagh \& N Merchant. Summer 2024
 
+Modified by Thomas Stebbings 2201393 2025
+
 ## controls
 
 A/D to move the paddle right and left.
@@ -12,6 +14,8 @@ P to pause.
 big/small paddle (blue)
 fast/slow ball (fancy yellow)
 fire ball (green)
+
+big ball
 
 # Tasklist
 
@@ -37,5 +41,7 @@ fire ball (green)
 
 Set up and Cloning Project Time-15 mins
 
-Fixed complier errors-Caused by including a derived class from its base class Time-45 Mins 
+Fixed complier errors-Caused by including a derived class from its base class Time-45 Mins
+
+Added Big ball powerup integrated with UI-2 hours
 
