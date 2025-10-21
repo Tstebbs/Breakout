@@ -21,7 +21,7 @@ private:
     sf::Vector2f _direction;
     sf::RenderWindow* _window;
     float _velocity;
-    float _scale;
+    float _radius;
     bool _isAlive;
     bool _isFireBall;
     float _timeWithPowerupEffect;

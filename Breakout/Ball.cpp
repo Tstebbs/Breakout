@@ -5,6 +5,7 @@ Ball::Ball(sf::RenderWindow* window, float velocity, GameManager* gameManager)
     : _window(window), _velocity(velocity), _gameManager(gameManager),
     _timeWithPowerupEffect(0.f), _isFireBall(false), _isAlive(true), _direction({1,1})
 {
+    _sprite.setScale(1, 1);
     _sprite.setRadius(RADIUS);
     _sprite.setFillColor(sf::Color::Cyan);
     _sprite.setPosition(0, 300);
@@ -21,20 +22,22 @@ void Ball::update(float dt)
     {
         _timeWithPowerupEffect -= dt;
     }
-    else if(_isFireBall==true)
+    else
     {
         if (_velocity != VELOCITY)
-            _velocity = VELOCITY;   // reset speed.
+        {
+            _velocity = VELOCITY;
+        // reset speed & radius
+        }
         else
         {
             setFireBall(0);    // disable fireball
             _sprite.setFillColor(sf::Color::Cyan);  // back to normal colour.
+            _radius = RADIUS;
+            _sprite.setRadius(RADIUS);
         }        
     }
-    else
-    {
-        _sprite.setRadius(RADIUS);
-    }
+    
 
     // Fireball effect
     if (_isFireBall)
@@ -80,7 +83,7 @@ void Ball::update(float dt)
         _direction.x = paddlePositionProportion * 2.0f - 1.0f;
 
         // Adjust position to avoid getting stuck inside the paddle
-        _sprite.setPosition(_sprite.getPosition().x, _gameManager->getPaddle()->getBounds().top - 2 * RADIUS);
+        _sprite.setPosition(_sprite.getPosition().x, _gameManager->getPaddle()->getBounds().top - 2 * _radius);
     }
 
     // collision with bricks
@@ -123,5 +126,6 @@ void Ball::setSize(float scale, float duration)
 {
     _timeWithPowerupEffect = duration;
     _sprite.setRadius(scale);
+    _radius = scale;
     
 }
